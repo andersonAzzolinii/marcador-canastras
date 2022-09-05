@@ -1,10 +1,10 @@
-// import { Heading, HStack, VStack } from 'native-base';
-// import { Card } from '../components/Card';
+import { View } from 'react-native';
+import { Card } from '../components/Card';
 
-// export function History() {
-//   return (
-//     <VStack flex={1}  pb={6} bg="white">
-//         <Card />
-//     </VStack>
-//   );
-// }
+export function History() {
+  return (
+    <View>
+        <text>teste</text>
+    </View>
+  );
+}

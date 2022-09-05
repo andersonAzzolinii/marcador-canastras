@@ -11,9 +11,9 @@ export function AppRoutes() {
     return (
         <Navigator initialRouteName="home" screenOptions={{ headerShown: false }}>
             <Screen name="home" component={Home} />
-            {/* <Screen name="history" component={History} />
+            <Screen name="history" component={History} />
             <Screen name="register" component={Register} />
-            <Screen name="match" component={Match} /> */}
+            <Screen name="match" component={Match} />
         </Navigator>
     )
 }
