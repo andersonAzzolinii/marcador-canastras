@@ -7,9 +7,8 @@ import {
   Text,
   Pressable,
   View,
-  Button,
 } from 'react-native';
-// import { Button } from "@react-native-material/core";
+ import { Button } from "@react-native-material/core";
 
 const Home = ({navigation}) => {
   const [showModal, setShowModal] = useState(false);
