@@ -1,14 +1,8 @@
-import { Input } from '../components/Input';
+import {Input} from '../components/Input';
 // import { Button } from "../components/Button";
-import React, { useState } from 'react';
-import {
-  Modal,
-  StyleSheet,
-  Text,
-  Pressable,
-  View,
-} from 'react-native';
- import { Button } from "@react-native-material/core";
+import React, {useState} from 'react';
+import {Modal, Alert, StyleSheet, Text, Pressable, View} from 'react-native';
+import {Button, Stack, Divider, Flex, HStack, VStack} from '@react-native-material/core';
 
 const Home = ({navigation}) => {
   const [showModal, setShowModal] = useState(false);
@@ -25,75 +19,94 @@ const Home = ({navigation}) => {
   const styles = StyleSheet.create({
     centeredView: {
       flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      marginTop: 22
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 22,
     },
     modalView: {
       margin: 20,
-      backgroundColor: "white",
+      backgroundColor: 'white',
       borderRadius: 20,
       padding: 35,
-      alignItems: "center",
-      shadowColor: "#000",
+      alignItems: 'center',
+      shadowColor: '#000',
       shadowOffset: {
         width: 0,
-        height: 2
+        height: 2,
       },
       shadowOpacity: 0.25,
       shadowRadius: 4,
-      elevation: 5
+      elevation: 5,
     },
     button: {
       borderRadius: 20,
       padding: 10,
-      elevation: 2
+      elevation: 2,
     },
     buttonOpen: {
-      backgroundColor: "#F194FF",
+      backgroundColor: '#F194FF',
     },
     buttonClose: {
-      backgroundColor: "#2196F3",
+      backgroundColor: '#2196F3',
     },
     textStyle: {
-      color: "white",
-      fontWeight: "bold",
-      textAlign: "center"
+      color: 'white',
+      fontWeight: 'bold',
+      textAlign: 'center',
     },
     modalText: {
       marginBottom: 15,
-      textAlign: "center"
-    }
+      textAlign: 'center',
+    },
   });
 
   return (
     <>
-      <View>
-        <Text>FOKIU BIT</Text>
-        <Button title="Nova partida" onPress={() => setShowModal(!showModal)} />
-        <Button title="Histórico" onPress={handleHistory} />
-      </View>
-      <View style={styles.centeredView}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={showModal}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!showModal);
-        }}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Número de Jogadores:</Text>
-            <Button title="2 Jogadores / Duplas" onPress={() => handleNewGame(3)} />
-            <Button title="3 Jogadores" onPress={() => handleNewGame(4)} />
-          </View>
+    <HStack center>
+      <Flex marginTop={50}>
+        <View>
+          <Text>CARQE COIZA</Text>
+          <Stack spacing={6} margin={12}>
+            <Button
+              title="Nova partida"
+              onPress={() => setShowModal(!showModal)}
+            />
+            <Button title="Histórico" onPress={handleHistory} />
+          </Stack>
         </View>
-      </Modal>
-    </View>
-
-    
+        <View style={styles.centeredView}>
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={showModal}
+            onRequestClose={() => {
+              Alert.alert('Modal has been closed.');
+              setModalVisible(!showModal);
+            }}>
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <Stack center spacing={6}>
+                  <Text style={styles.modalText}>Número de Jogadores:</Text>
+                  <Divider style={{marginTop: 10}} />
+                  <Button 
+                    color="#FDCAE4"
+                    tintColor="white"
+                    title="2 Jogadores"
+                    onPress={() => handleNewGame(3)}
+                  />
+                  <Button
+                    color="#FDCAE4"
+                    tintColor="white"
+                    title="3 Jogadores"
+                    onPress={() => handleNewGame(4)}
+                  />
+                </Stack>
+              </View>
+            </View>
+          </Modal>
+        </View>
+      </Flex>
+      </HStack>
 
       {/* <Modal onClose={() => setShowModal(!showModal)} isOpen={showModal}>
         <Text>Número de jogadores</Text>
@@ -154,8 +167,6 @@ const Home = ({navigation}) => {
       </VStack> */}
     </>
   );
-
-  
 };
 
 export default Home;
