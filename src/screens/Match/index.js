@@ -4,8 +4,18 @@
 // import { Button } from "../components/Button";
 // import { Input } from "../components/Input";
 // // import { FlatList } from 'react-native';
+import React from "react"
+import { Text } from "react-native"
+const Match = () => {
+  return (<Text>
+    TESTE DO GATATA
+  </Text>)
 
-// export function Match() {
+
+}
+
+
+export default Match
 //   // const { width: windowWidth, height: windowHeight } = Dimensions.get("window");
 //   const maxPoint = 4000;
 //   const width = Dimensions.get("window").width;
