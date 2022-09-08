@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {VStack, HStack} from 'react-native-flex-layout';
+import {VStack, HStack} from '@react-native-material/core';
 import {Modal, Alert, StyleSheet, Text, Pressable, View} from 'react-native';
 import {
   Button,
@@ -18,7 +18,7 @@ const Home = ({navigation}) => {
 
   function handleNewGame(value) {
     setShowModal(false);
-    navigation.navigate('match', {amount: value});
+    navigation.navigate('register', {amount: value});
   }
   function handleHistory() {
     setShowModal(false);

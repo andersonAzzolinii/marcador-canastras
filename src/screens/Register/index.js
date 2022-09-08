@@ -1,9 +1,10 @@
-import {Modal, StyleSheet, Text, Pressable, View, Button} from 'react-native';
-import { Input } from "../components/Input";
+import { Input } from "../../components/Input";
 // import { Button } from "../components/Button";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { VStack, Pressable, Button } from '@react-native-material/core';
+import styles from "./styles";
 
-export function Register({route, navigation}) {
+const Register = ({route, navigation}) =>   {
   const {amount} = route.params;
   const [infoPlayers, setInfoPlayers] = useState([]);
   const [maxScore, setMaxScore] = useState(0);
@@ -44,32 +45,25 @@ export function Register({route, navigation}) {
   }
   return (
     <>
-      <View
-        flex="1"
-        justifyContent="center"
-        alignItems="center"
-        bg="white"
-        px={8}
-        pt={12}>
+      <VStack>
         {
           // percore infoPlayers, em cada volta renderiza um input, até acabar as voltas "player" é o objeto da vez no loop
           infoPlayers.map(player => {
+            var i = player.id;
             return (
-              <Input
-                placeholder={player.placeholder}
-                mb={3}
-                key={player.id}
-                onChangeText={e => handleChangeText(e, player)}
+              <Input style={styles.defaultInput}
+              placeholder={`Jogador ${i}`}
               />
             );
           })
         }
         <Button
           title="Criar partida"
-          w="full"
           onPress={() => navigation.replace('match')}
         />
-      </View>
+      </VStack>
     </>
   );
 }
+
+export default Register;
