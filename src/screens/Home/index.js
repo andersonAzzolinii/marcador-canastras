@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import { Modal, Alert, StyleSheet, Text, Pressable, View } from 'react-native';
+import React, {useState} from 'react';
+import {VStack, HStack} from '@react-native-material/core';
+import {Modal, Alert, StyleSheet, Text, Pressable, View} from 'react-native';
 import {
   Button,
   Stack,
   Divider,
   Flex,
-  HStack,
-  VStack,
   Dialog,
   DialogHeader,
   DialogContent,
@@ -14,12 +13,12 @@ import {
 } from '@react-native-material/core';
 import styles from './styles';
 
-const Home = ({ navigation }) => {
+const Home = ({navigation}) => {
   const [showModal, setShowModal] = useState(false);
 
   function handleNewGame(value) {
     setShowModal(false);
-    navigation.navigate('match', { amount: value });
+    navigation.navigate('register', {amount: value});
   }
   function handleHistory() {
     setShowModal(false);
@@ -31,44 +30,48 @@ const Home = ({ navigation }) => {
       <HStack center>
         <Flex marginTop={50}>
           <View>
-            <Text>CARQE COIZA</Text>
+            <Text style={styles.text}>LOGOTIPO</Text>
             <Stack spacing={6} margin={12}>
               <Button
                 title="Nova partida"
                 onPress={() => {
-                  console.log('1werwew')
-                  setShowModal(true)}}
+                  setShowModal(true);
+                }}
               />
               <Button title="Histórico" onPress={handleHistory} />
             </Stack>
           </View>
-          <View style={styles.centeredView}>
-
+          <View>
             <Dialog visible={showModal} onDismiss={() => setShowModal(false)}>
-              <DialogHeader title="Dialog Header" />
+              <DialogHeader title="Partida" />
               <DialogContent>
-                <Text>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum
-                  eligendi inventore, laboriosam laudantium minima minus nesciunt
-                  pariatur sequi.
+                <Text style={styles.text}>
+                  Selecione o número de jogadores para iniciar o registro da
+                  partida
                 </Text>
+                <VStack center>
+                  <Button
+                    style={styles.buttonModal}
+                    title="2 Jogadores / Duplas"
+                    onPress={() => handleNewGame(3)}
+                  />
+
+                  <Button
+                    style={styles.buttonModal}
+                    title="3 Jogadores"
+                    onPress={() => handleNewGame(4)}
+                  />
+                </VStack>
               </DialogContent>
               <DialogActions>
                 <Button
-                  title="Cancel"
-                  compact
+                  title="Cancelar"
                   variant="text"
-                  onPress={() => setVisible(false)}
-                />
-                <Button
-                  title="Ok"
-                  compact
-                  variant="text"
-                  onPress={() => setVisible(false)}
+                  color="red"
+                  onPress={() => setShowModal(false)}
                 />
               </DialogActions>
             </Dialog>
-
           </View>
         </Flex>
       </HStack>

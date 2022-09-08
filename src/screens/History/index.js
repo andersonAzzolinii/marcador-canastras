@@ -1,10 +1,9 @@
-import { View } from 'react-native';
-import { Card } from '../components/Card';
+import React from 'react';
+import {View, Text} from 'react-native';
+import {Card} from '../../components/Card';
 
-export function History() {
-  return (
-    <View>
-        <text>teste</text>
-    </View>
-  );
-}
+const History = () => {
+  return <Card />;
+};
+
+export default History;
